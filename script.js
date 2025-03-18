@@ -63,8 +63,7 @@ function atualizarTremDePouso() {
 
 // Event Listeners
 acelerarButton.addEventListener('click', () => {
-
-
+    
 if (paisOrigemSelect.value === paisDestinoSelect.value) {
     alert("O país de origem não pode ser igual ao país de destino. Velocidade permanecerá em 0.");
     velocidade = 0;
