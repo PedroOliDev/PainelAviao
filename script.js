@@ -216,6 +216,8 @@ document.addEventListener('keydown', function(event) {
 
     let top = parseInt(window.getComputedStyle(airplane).top, 10);
     let left = parseInt(window.getComputedStyle(airplane).left, 10);
+    
+    
 
     switch(event.key) {
         case 'w':
@@ -239,4 +241,9 @@ document.addEventListener('keydown', function(event) {
             }
             break;
     }
+addEventListener('keydown', function(event) {
+    airplane.style.transform = `rotate(${direcao}deg)`;
+    airplane.style.transition = 'transform 0.2s'; // Adiciona uma transição suave para a rotação
+     
+})
 });
