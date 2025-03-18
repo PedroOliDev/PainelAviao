@@ -63,7 +63,16 @@ function atualizarTremDePouso() {
 
 // Event Listeners
 acelerarButton.addEventListener('click', () => {
-    if (combustivel > 0) {
+
+
+if (paisOrigemSelect.value === paisDestinoSelect.value) {
+    alert("O país de origem não pode ser igual ao país de destino. Velocidade permanecerá em 0.");
+    velocidade = 0;
+    atualizarVelocidade();
+    return;
+}
+
+     if (combustivel > 0) {
         velocidade += 10;
         combustivel -= 1;
         if (combustivel < 25) {
@@ -72,6 +81,8 @@ acelerarButton.addEventListener('click', () => {
         if (velocidade === 200) {
             altitude += 200;
         }
+
+        
         
         atualizarAltitude();
         atualizarVelocidade();
@@ -148,9 +159,7 @@ calcularRotaButton.addEventListener('click', () => {
     const paisOrigem = paisOrigemSelect.value;
     const paisDestino = paisDestinoSelect.value;
     
-    if (paisOrigem === paisDestino) { 
-        alert("Países de origem e destino iguais. Selecione países diferentes.");
-        return; }
+    
 
     // Coordenadas dos países (exemplo)
     const coordenadas = {
@@ -207,15 +216,6 @@ paisDestinoSelect.addEventListener('change', () => {
     alert(`País destino: ${paisSelecionado}`);
 });
 
-girarDireitaButton.addEventListener('click', () => {
-    airplane.style.transform = `rotate(${direcao}deg)`;
-    airplane.style.transition = 'transform 0.2s'; // Adiciona uma transição suave para a rotação
-});
-
-girarEsquerdaButton.addEventListener('click', () => {
-    airplane.style.transform = `rotate(${direcao}deg)`;
-    airplane.style.transition = 'transform 0.2s'; // Adiciona uma transição suave para a rotação
-});
 
 document.addEventListener('keydown', function(event) {
     const airplane = document.getElementById('airplane');
@@ -253,4 +253,13 @@ document.addEventListener('keydown', function(event) {
             break;
     }
 
+});
+girarDireitaButton.addEventListener('click', () => {
+    airplane.style.transform = `rotate(${direcao}deg)`;
+   
+});
+
+girarEsquerdaButton.addEventListener('click', () => {
+    airplane.style.transform = `rotate(${direcao}deg)`;
+    
 });
