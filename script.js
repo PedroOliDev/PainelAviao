@@ -206,6 +206,17 @@ paisDestinoSelect.addEventListener('change', () => {
     const paisSelecionado = paisDestinoSelect.options[paisDestinoSelect.selectedIndex].text;
     alert(`País destino: ${paisSelecionado}`);
 });
+
+girarDireitaButton.addEventListener('click', () => {
+    airplane.style.transform = `rotate(${direcao}deg)`;
+    airplane.style.transition = 'transform 0.2s'; // Adiciona uma transição suave para a rotação
+});
+
+girarEsquerdaButton.addEventListener('click', () => {
+    airplane.style.transform = `rotate(${direcao}deg)`;
+    airplane.style.transition = 'transform 0.2s'; // Adiciona uma transição suave para a rotação
+});
+
 document.addEventListener('keydown', function(event) {
     const airplane = document.getElementById('airplane');
     const container = document.getElementById('containeraviao');
@@ -241,9 +252,5 @@ document.addEventListener('keydown', function(event) {
             }
             break;
     }
-addEventListener('keydown', function(event) {
-    airplane.style.transform = `rotate(${direcao}deg)`;
-    airplane.style.transition = 'transform 0.2s'; // Adiciona uma transição suave para a rotação
-     
-})
+
 });
